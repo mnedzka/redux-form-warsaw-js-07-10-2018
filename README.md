@@ -5,6 +5,9 @@
 - [Features](#features)
 - [What you can learn](#what-you-can-learn)
 - [Setup](#setup)
+- [Steps](#steps)
+  - [Confirugation](#configuration)
+  - [Authorization service](#authorization-service)
 
 ## Features :speedboat:
 * :gem: Authorization service (register/login)
@@ -35,3 +38,15 @@ Then, you should see something like that:
 
 ![](static/screenshot.png)
 
+## Steps
+### Confirugation
+* Set `API_BASE_URL` variable
+
+### Authorization service
+* Create api `register` and `login` functions
+* Create register and login form
+* Create file for `auth` actions with `register` and `login` actions
+* Create `user` reducer and combine that
+* Manage `token`
+* Create `requireAuth` HOC
+* Add protected route
