@@ -1,0 +1,16 @@
+{
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "actions": "./actions",
+          "components": "./components",
+          "constants": "./constants",
+          "utils": "./utils"
+        }
+      }
+    ]
+  ],
+  "presets": ["next/babel"]
+}
