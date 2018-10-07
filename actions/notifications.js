@@ -15,9 +15,9 @@ export const pushNotification = notification => {
 };
 
 export const pushAutoRemoveNotifications = ({ secondsToRemove = 3, ...rest }) => dispatch => {
-  const id = new Date().getTime();
 
   Object.entries(rest).forEach(([key, value]) => {
+    const id = new Date().getTime();
     const notificationToPush = {
       id,
       type: key,

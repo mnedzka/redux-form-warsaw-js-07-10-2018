@@ -1,5 +1,6 @@
 import { Fragment, PureComponent } from 'react';
 import { withRouter } from "next/router";
+import { SystemNotifications } from "components";
 
 class Dashboard extends PureComponent {
   constructor(props) {
@@ -18,6 +19,7 @@ class Dashboard extends PureComponent {
       <Fragment>
         <header>Hello {user.email}</header>
         <main>{children}</main>
+        <SystemNotifications />
       </Fragment>
     )
   }

@@ -21,6 +21,7 @@ class MyApp extends App {
         <Provider store={store}>
           <Fragment>
             <Loading />
+            <div id="system-notifications-root" />
             <Component {...pageProps} />
           </Fragment>
         </Provider>

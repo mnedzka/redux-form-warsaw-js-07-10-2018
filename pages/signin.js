@@ -2,11 +2,14 @@ import { connect } from "react-redux";
 import { reduxForm, Field } from 'redux-form';
 import { Input, Button } from 'components';
 import { required, email, length } from 'redux-form-validators';
-import { signin } from 'actions/auth'
+import { signin } from 'actions/auth';
+import Router from 'next/router';
+
 
 let SignIn = ({ signin, handleSubmit }) => {
   const handleSignin = (values) => {
     signin(values)
+      .then(() => Router.push('/dashboard'))
   }
   return (
     <form onSubmit={handleSubmit(handleSignin)}>
