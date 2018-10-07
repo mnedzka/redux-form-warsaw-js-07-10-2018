@@ -9,6 +9,14 @@ export default {
         password,
         token: Math.random().toString(36).substring(7),
       }
+    }),
+    login: ({ email, password }) => net.get({
+      url: "users",
+      data: {
+        email,
+        password,
+        _limit: 1
+      }
     })
   }
 }

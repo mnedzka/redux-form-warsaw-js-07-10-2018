@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { stringify } from 'querystring';
-import localStorage from './localStorage';
+import cookieStorage from './cookieStorage';
 
 
 class Net {
@@ -12,7 +12,7 @@ class Net {
   }
   _getHeaders = () => {
     const headers = this.headers;
-    const token = localStorage.get('token');
+    const token = cookieStorage.get('token');
     if (token) {
       headers.Authorization = `Token ${token}`;
     }
@@ -23,7 +23,7 @@ class Net {
     const query = stringify(data);
     const headers = this._getHeaders();
 
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       await axios.get(`${this.BASE_URL}/${url}/${query ? `?${query}` : ''}`, {
         headers,
       })
@@ -35,7 +35,7 @@ class Net {
   post = ({ url, data = {}, config = {} }) => {
     const headers = this._getHeaders();
 
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       await axios.post(`${this.BASE_URL}/${url}/`, data, {
         headers,
         ...config,
@@ -49,7 +49,7 @@ class Net {
     const headers = this._getHeaders();
     const query = stringify(queryData);
 
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       await axios.put(`${this.BASE_URL}/${url}/${query ? `?${query}` : ''}`, data, {
         headers,
         ...config,
@@ -62,7 +62,7 @@ class Net {
   patch = ({ url, data = {}, config = {} }) => {
     const headers = this._getHeaders();
 
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       await axios.patch(`${this.BASE_URL}/${url}/`, data, {
         headers,
         ...config,
@@ -75,7 +75,7 @@ class Net {
   delete = ({ url, config = {} }) => {
     const headers = this._getHeaders();
 
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
       await axios.delete(`${this.BASE_URL}/${url}/`, {
         headers,
         ...config,
