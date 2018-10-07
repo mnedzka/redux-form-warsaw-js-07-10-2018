@@ -18,5 +18,14 @@ export default {
         _limit: 1
       }
     })
+  },
+  user: {
+    getByToken: ({ token }) => net.get({
+      url: "users",
+      data: {
+        token,
+        _limit: 1
+      }
+    })
   }
 }
