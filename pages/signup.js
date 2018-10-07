@@ -1,10 +1,10 @@
-import {connect} from "react-redux";
-import {reduxForm, Field} from 'redux-form';
-import {Input, Button} from 'components';
-import {required, email, length} from 'redux-form-validators';
-import {signup} from 'actions/auth'
+import { connect } from "react-redux";
+import { reduxForm, Field } from 'redux-form';
+import { Input, Button } from 'components';
+import { required, email, length } from 'redux-form-validators';
+import { signup } from 'actions/auth'
 
-let SignUp = ({signup,handleSubmit }) => {
+let SignUp = ({ signup, handleSubmit }) => {
   const handleSignup = (values) => {
     signup(values)
   }
@@ -26,7 +26,7 @@ let SignUp = ({signup,handleSubmit }) => {
         type="password"
         component={Input}
         labelText="Password"
-        validate={[required(), length({min: 6})]}
+        validate={[required(), length({ min: 6 })]}
       />
       <Button primary blue>Submit</Button>
     </form>

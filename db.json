@@ -3,6 +3,12 @@
     {
       "id": 1,
       "name": "Daniel"
+    },
+    {
+      "email": "blabla@com.pl",
+      "password": "wegwrwrg",
+      "token": "s6sp48",
+      "id": 2
     }
   ],
   "answers": [

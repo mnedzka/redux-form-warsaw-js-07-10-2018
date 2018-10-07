@@ -2,8 +2,8 @@ import net from "./net"
 
 export default {
   auth: {
-    register: ({email, password}) => net.post({
-      url: "url",
+    register: ({ email, password }) => net.post({
+      url: "users",
       data: {
         email,
         password,
