@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Provider } from 'react-redux';
 import App, { Container } from 'next/app';
 import withRedux from 'next-redux-wrapper';
+import { Loading } from "components";
 
 import initStore from 'utils/store';
 
@@ -18,7 +19,10 @@ class MyApp extends App {
     return (
       <Container>
         <Provider store={store}>
-          <Component {...pageProps} />
+          <Fragment>
+            <Loading />
+            <Component {...pageProps} />
+          </Fragment>
         </Provider>
       </Container>
     );
