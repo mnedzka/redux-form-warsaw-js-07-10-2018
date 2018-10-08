@@ -27,5 +27,10 @@ export default {
         _limit: 1
       }
     })
-  }
+  },
+  questions: {
+    fetchAll: () => net.get({
+      url: 'questions',
+    }),
+  },
 }

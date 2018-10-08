@@ -4,7 +4,11 @@ import { getUserByToken } from 'actions/user';
 
 export default () => ComposedComponent => {
   return class withAuth extends Component {
-    static async getInitialProps({ req, res, isServer, store }) {
+    static async getInitialProps(context) {
+      const composedInitialProps = ComposedComponent.getInitialProps
+        ? await ComposedComponent.getInitialProps(context)
+        : {};
+      const { req, res, isServer, store } = context;
       let token;
 
       if (isServer) {
@@ -16,7 +20,7 @@ export default () => ComposedComponent => {
       const user = await store.dispatch(getUserByToken({ token }))
       console.log(token);
 
-      return { user };
+      return { ...composedInitialProps, user };
     }
 
     static defaultProps = {
